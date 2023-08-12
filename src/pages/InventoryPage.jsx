@@ -1,6 +1,8 @@
 import React from "react";
 import { Navbar } from "../components/Navbar";
 import { useInventory } from "../contexts/InventoryContext";
+import "./styles.css"
+
 
 export const InventoryPage = () => {
   const {
@@ -17,12 +19,17 @@ export const InventoryPage = () => {
   const lowStockItems = inventoryData.filter((product) => product.stock <= 10);
 
   return (
-    <div>
-      <h2> InventoryPage </h2>
-      <Navbar />
-      <div>Total Stock: {totalStock}</div>
-      <div>Total Delivered: {totalDelivered}</div>
-      <div>Low Stock Items: {lowStockItems.length}</div>
+    <div className="grid">
+      <div>
+        <Navbar />
+      </div>
+      <div>
+        <h2> InventoryPage </h2>
+
+        <div>Total Stock: {totalStock}</div>
+        <div>Total Delivered: {totalDelivered}</div>
+        <div>Low Stock Items: {lowStockItems.length}</div>
+      </div>
     </div>
   );
 };

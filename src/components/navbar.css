@@ -1,0 +1,12 @@
+.navbar-container {
+  position: fixed;
+  height: 100vh;
+  background-color: azure;
+  padding:1rem;
+}
+
+.nav li{
+    list-style-type: none;
+    padding:.5rem;
+    cursor:pointer;
+}

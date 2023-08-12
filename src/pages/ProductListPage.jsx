@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Navbar } from "../components/Navbar";
 import { useInventory } from "../contexts/InventoryContext";
+import "./styles.css"
 
 export const ProductListPage = () => {
   const [sortType, setSortType] = useState("name"); // Default sorting by name
@@ -59,8 +60,11 @@ export const ProductListPage = () => {
   };
 
   return (
-    <div>
-      <Navbar />
+    <div className="grid">
+      <div>
+        <Navbar />
+      </div>
+
       <div>
         <div>
           Sort by:
