@@ -2,3 +2,11 @@
     display: grid;
     grid-template-columns: 20% 70%;
 }
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align:center;
+  }
+  td{
+    padding:1rem;
+  }
