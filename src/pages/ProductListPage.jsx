@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Navbar } from "../components/Navbar";
 import { useInventory } from "../contexts/InventoryContext";
-import "./styles.css"
+import "./styles.css";
 
 export const ProductListPage = () => {
   const [sortType, setSortType] = useState("name"); // Default sorting by name
@@ -25,7 +25,7 @@ export const ProductListPage = () => {
   // Sort products based on user selection
   const filteredAndSortedProducts = filteredProducts.filter((product) => {
     if (showLowStock) {
-      return product.stock <= 20;
+      return product.stock <= 10;
     }
     return true;
   });
@@ -88,17 +88,12 @@ export const ProductListPage = () => {
           <button onClick={() => navigate("/productMgt")}>New</button>
         </div>
 
-        {sortedProducts.map((product) => (
-          <div key={product.id}>
-            <img
-              src={product.imageUrl}
-              alt={product.name}
-              height={200}
-              width={200}
-            />
-            <h3>{product.name}</h3>
-            <p>Price: ${product.price.toFixed(2)}</p>
-            <p>Stock: {product.stock}</p>
+        {sortedProducts.map(({ id, imageUrl, name, price, stock }) => (
+          <div key={id} onClick={() => navigate(`/product/${id}`)}>
+            <img src={imageUrl} alt={name} height={200} width={200} />
+            <h3>{name}</h3>
+            <p>Price: ${price.toFixed(2)}</p>
+            <p>Stock: {stock}</p>
           </div>
         ))}
       </div>
